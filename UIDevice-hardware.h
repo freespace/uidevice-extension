@@ -8,6 +8,7 @@
 #define IPHONE_UNKNOWN_NAMESTRING @"Unknown iPhone"
 
 #define IPAD_2_NAMESTRING @"iPad 2"
+#define IPAD_3_NAMESTRING @"iPad 3"
 #define IPAD_UNKNOWN_NAMESTRING @"Unknown iPad"
 
 #define IPOD_1G_NAMESTRING @"iPod touch 1G"
@@ -17,16 +18,22 @@
 typedef enum {
 	UIDeviceUnknown,
 	UIDevice1GiPhone,
-	UIDevice1GiPod,
 	UIDevice3GiPhone,
 	UIDevice3GSiPhone,
 	UIDevice4iPhone,
 	UIDevice4SiPhone,
+	UIDeviceUnknowniPhone,
+    
+    UIDevice1GiPod,
 	UIDevice2GiPod,
+    UIDevice3GiPod,
+    UIDevice4GiPod,
+    UIDeviceUnknowniPod,    
+    
     UIDevice1GiPad,
     UIDevice2GiPad,
-	UIDeviceUnknowniPhone,
-	UIDeviceUnknowniPod,
+    UIDevice3GiPad,
+
     UIDeviceUnknowniPad,
 } UIDevicePlatform;
 

@@ -41,19 +41,24 @@
 	if ([platform isEqualToString:@"iPhone1,1"]) return UIDevice1GiPhone;
 	if ([platform isEqualToString:@"iPhone1,2"]) return UIDevice3GiPhone;
 	if ([platform isEqualToString:@"iPhone2,1"]) return UIDevice3GSiPhone;
-	if ([platform isEqualToString:@"iPhone3,1"]) return UIDevice4iPhone;
-	// iPhone 4 CDMA
-	if ([platform isEqualToString:@"iPhone3,3"]) return UIDevice4iPhone;
+	if ([platform isEqualToString:@"iPhone3,1"]) return UIDevice4iPhone; 
+	if ([platform isEqualToString:@"iPhone3,3"]) return UIDevice4iPhone; // iPhone 4 CDMA
 	if ([platform isEqualToString:@"iPhone4,1"]) return UIDevice4SiPhone;
-	if ([platform hasPrefix:@"iPhone"]) return UIDeviceUnknowniPhone;
+    if ([platform hasPrefix:@"iPhone"]) return UIDeviceUnknowniPhone;
         
-	if ([platform isEqualToString:@"iPod1,1"])   return UIDevice1GiPod;
-	if ([platform isEqualToString:@"iPod2,1"])   return UIDevice2GiPod;
+	if ([platform isEqualToString:@"iPod1,1"]) return UIDevice1GiPod;
+	if ([platform isEqualToString:@"iPod2,1"]) return UIDevice2GiPod;
+    if ([platform isEqualToString:@"iPod3,1"]) return UIDevice3GiPod;
+    if ([platform isEqualToString:@"iPod4,1"]) return UIDevice4GiPod;
 	if ([platform hasPrefix:@"iPod"]) return UIDeviceUnknowniPod;
-
+    
+    if ([platform isEqualToString:@"iPad2,1"]) return UIDevice2GiPad; // wifi
+    if ([platform isEqualToString:@"iPad2,2"]) return UIDevice2GiPad; // wifi+3G
+    if ([platform isEqualToString:@"iPad2,3"]) return UIDevice2GiPad; // wifi+CDMA
+    if ([platform isEqualToString:@"iPad3,1"]) return UIDevice3GiPad; // wifi
+    if ([platform isEqualToString:@"iPad3,2"]) return UIDevice3GiPad; // wifi+3G
+    if ([platform isEqualToString:@"iPad3,3"]) return UIDevice3GiPad; // wifi+CDMA
     if ([platform hasSuffix:@"iPad"]) return UIDeviceUnknowniPad;
-    // $todo original iPad and iPad 3 support
-    if ([platform isEqualToString:@"iPad2,2"]) return UIDevice2GiPad;
 
 	return UIDeviceUnknown;
 }
