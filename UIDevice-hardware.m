@@ -18,8 +18,9 @@
  iPod2,1   -> iPod touch 2G 
  iPad2,2   -> iPad 2
  For more information:
-             http://www.edepot.com/iphone.html
-             http://stackoverflow.com/questions/1108859/detect-the-specific-iphone-ipod-touch-model
+            http://www.edepot.com/iphone.html
+            http://stackoverflow.com/questions/1108859/detect-the-specific-iphone-ipod-touch-model
+            http://theiphonewiki.com/wiki/Models
 
 */
 
@@ -44,6 +45,8 @@
 	if ([platform isEqualToString:@"iPhone3,1"]) return UIDevice4iPhone; 
 	if ([platform isEqualToString:@"iPhone3,3"]) return UIDevice4iPhone; // iPhone 4 CDMA
 	if ([platform isEqualToString:@"iPhone4,1"]) return UIDevice4SiPhone;
+    if ([platform isEqualToString:@"iPhone5,1"]) return UIDevice5iPhone; // iPhone 5 GSM
+    if ([platform isEqualToString:@"iPhone5,2"]) return UIDevice5iPhone; // iPhone 5 GSM+CDMA
     if ([platform hasPrefix:@"iPhone"]) return UIDeviceUnknowniPhone;
         
 	if ([platform isEqualToString:@"iPod1,1"]) return UIDevice1GiPod;
@@ -72,6 +75,7 @@
 		case UIDevice3GSiPhone: return IPHONE_3GS_NAMESTRING;
 		case UIDevice4iPhone: return IPHONE_4_NAMESTRING;
         case UIDevice4SiPhone: return IPHONE_4S_NAMESTRING;
+        case UIDevice5iPhone: return IPHONE_5_NAMESTRING;
 		case UIDeviceUnknowniPhone: return IPHONE_UNKNOWN_NAMESTRING;
 		
 		case UIDevice1GiPod: return IPOD_1G_NAMESTRING;
@@ -90,14 +94,15 @@
 	int capabilities = 0;
 	switch ([self platformType])
 	{
+        case UIDevice5iPhone:
         case UIDevice4SiPhone:
-		case UIDevice4iPhone: capabilities |= UIDeviceBuiltInGyroscope | UIDeviceBuiltInFrontCamera;
+		case UIDevice4iPhone: capabilities |= UIDeviceBuiltInGyroscope | UIDeviceBuiltInFrontCamera | UIDeviceBuiltInLEDFlash;
 		case UIDevice3GSiPhone: capabilities |= UIDeviceBuiltInCompass;
 		case UIDevice3GiPhone: capabilities |= UIDeviceSupportsGPS;
 		case UIDeviceUnknowniPhone:
 		case UIDevice1GiPhone: 
 		{
-			capabilities |= UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration;		
+			capabilities |= UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration;
 			return capabilities;
 		}
 
