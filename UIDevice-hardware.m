@@ -62,6 +62,7 @@
     if ([platform isEqualToString:@"iPad3,2"]) return UIDevice3GiPad; // wifi+3G
     if ([platform isEqualToString:@"iPad3,3"]) return UIDevice3GiPad; // wifi+CDMA
     if ([platform hasSuffix:@"iPad"]) return UIDeviceUnknowniPad;
+    if ([platform hasPrefix:@"x86_"]) return UIDeviceSimulator;
 
 	return UIDeviceUnknown;
 }
@@ -84,6 +85,7 @@
 
         case UIDevice2GiPad: return IPAD_2_NAMESTRING;
         case UIDeviceUnknowniPad: return IPAD_UNKNOWN_NAMESTRING;
+        case UIDeviceSimulator: return IPHONE_SIMULATOR;
 		default: 
             return [NSString stringWithFormat:@"Unknown platform: %@", [self platform]];
 	}

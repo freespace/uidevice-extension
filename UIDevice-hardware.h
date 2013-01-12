@@ -6,7 +6,7 @@
 #define IPHONE_4_NAMESTRING @"iPhone 4"
 #define IPHONE_4S_NAMESTRING @"iPhone 4S"
 #define IPHONE_5_NAMESTRING @"iPhone 5"
-
+#define IPHONE_SIMULATOR @"iPhone Simulator"
 #define IPHONE_UNKNOWN_NAMESTRING @"Unknown iPhone"
 
 #define IPAD_2_NAMESTRING @"iPad 2"
@@ -38,6 +38,8 @@ typedef enum {
     UIDevice3GiPad,
 
     UIDeviceUnknowniPad,
+
+    UIDeviceSimulator,
 } UIDevicePlatform;
 
 enum {
